@@ -1,18 +1,468 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Python程序</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>个人简历</title>
+<meta name="description" content="个人简历描述">
+<meta name="keywords" content="关键词" />
+
+<!-- Favicons
+    ================================================== -->
+
+<link rel="shortcut icon" href="{% static "hello/img/favicon_jianli.ico" %}" type="image/x-icon">
+
+
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css"  href="{% static "hello/css/bootstrap.css"%}">
+<link rel="stylesheet" type="text/css" href="{% static "hello/fonts/font-awesome/css/font-awesome.css"%}">
+
+<!-- Slider
+    ================================================== -->
+<link href="{% static 'hello/css/owl.carousel.css'%}" rel="stylesheet" media="screen">
+<link href="{% static 'hello/css/owl.theme.css'%}" rel="stylesheet" media="screen">
+
+<!-- Stylesheet
+    ================================================== -->
+<link rel="stylesheet" type="text/css"  href="{% static 'hello/css/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'hello/css/prettyPhoto.css'%}">
+
+<link rel="stylesheet" type="text/css" href="{% static "hello/fonts/sns_fonts/iconfont.css"%}">
+
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
-<body>
-{% if latest_question_list %}
-    <ul>
-    {% for question in latest_question_list %}
-        <li><a href="/hello/{{ question.id }}/">{{ question.question_text }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No polls are available.</p>
-{% endif %}
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top"><i class="fa fa-terminal"></i>TOP信息</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#services">基本资料</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#works">项目经验</a>
+                    </li>                    
+                    <li>
+                        <a class="page-scroll" href="#about">专业技能</a>
+                    </li>                    
+                    <li>
+                        <a class="page-scroll" href="#team">工作经历</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#testimonials">自我评价</a>
+                    </li>                    
+                    <li>
+                        <a class="page-scroll" href="#contact">联系方式</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+<!-- Header -->
+    <header class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h1>简历<span class="brand-heading">-王春</span></h1>
+                        <p class="intro-text">喜欢技术，热爱挑战</p>
+                        <a href="#services" class="btn btn-circle page-scroll">
+                            <i class="fa fa-angle-double-down animated"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+<div class="copyrights">Baron简历 <a href="http://blog.youzewang.com/jianli" >前端工程师</a></div>
+<!-- Services Section -->
+<div id="services" class="text-center">
+  <div class="container">
+    <div class="section-title center">
+      <h2>基本 <strong>资料</strong></h2>
+      <hr>
+      </div>
+    <div class="space"></div>
+    <div class="row">
+      <div class="col-md-3 col-sm-6 service"> <i class="fa fa-laptop"></i>
+        <h4><strong>个人信息</strong></h4>
+        <p>
+		姓名: 王春 &nbsp;性别：男</br>
+		年龄: 26岁 籍贯：四川
+		</p>
+      </div>
+      <div class="col-md-3 col-sm-6 service"> <i class="fa fa-code"></i>
+        <h4><strong>专业学历</strong></h4>
+        <p>
+		专业：土木工程</br>
+		学历：大学本科</br>
+		</p>
+      </div>
+      <div class="col-md-3 col-sm-6 service"> <i class="fa fa-rocket"></i>
+        <h4><strong>毕业学校</strong></h4>
+        <p>
+		  毕业学校：西南交通大学希望学院</br>
+		  学习技能：编程
+		</p>
+      </div>
+      <div class="col-md-3 col-sm-6 service"> <i class="fa fa-bullseye"></i>
+        <h4><strong>联系方式</strong></h4>
+        <p>QQ：1164004116</br>
+		  邮箱：1164004116@qq.com</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Portfolio Section -->
+<div id="works">
+  <div class="container"> <!-- Container -->
+    <div class="section-title text-center center">
+      <h2>项目 <strong>经验</strong></h2>
+      <hr>
+      <div class="clearfix"></div>
+      <p>主要涉及金融，电商领域。包括后台管理，PC端，微信端等等</p>
+    </div>
+    <div class="categories">
+      <ul class="cat">
+        <li>
+          <ol class="type">
+            <li><a href="#" data-filter="*" class="active">所有</a></li>
+            <li><a href="#" data-filter=".web">PC端</a></li>
+            <li><a href="#" data-filter=".app">后台应用</a></li>
+            <li><a href="#" data-filter=".branding">响应式</a></li>
+          </ol>
+        </li>
+      </ul>
+      <div class="clearfix"></div>
+    </div>
+    <div class="row">
+      <div class="portfolio-items">
+      
+        <div class="col-sm-6 col-md-3 col-lg-3 web">
+          <div class="portfolio-item">
+            <div class="hover-bg">
+              <div class="hover-text">
+                <h4><a href="https://8.95508.com/ehouse/" target='_blank' title="广发直销银行">广发直销银行</a></h4>
+                <small>技术：EMP+HTML+CSS+JQuery</small>
+                <div class="clearfix"></div>
+                <i class="fa fa-search"></i> </div>
+              <img src="{% static "hello/img/portfolio/02.jpg"%}" class="img-responsive" alt="广发直销银行"></div>
+          </div>
+        </div>
+		
+        <div class="col-sm-6 col-md-3 col-lg-3 app">
+          <div class="portfolio-item">
+            <div class="hover-bg">
+              <div class="hover-text">
+                <h4><a href="http://www.echplus.com/khal" target='_blank' title="E账通-前置">E账通-前置</a></h4>
+                <small>技术：EMP+Spring+DB2</small>
+                <div class="clearfix"></div>
+                <i class="fa fa-search"></i> </div>
+              <img src="{% static "hello/img/portfolio/03.jpg"%}" class="img-responsive" alt="E账通-前置"></div>
+          </div>
+        </div>
+        
+        <div class="col-sm-6 col-md-3 col-lg-3 branding app">
+          <div class="portfolio-item">
+            <div class="hover-bg">
+              <div class="hover-text">
+                <h4><a href="http://www.echplus.com/khal" target='_blank' title="E账通-虚账户">E账通-虚账户</a></h4>
+                <small>技术：EMP+Spring+DB2</small>
+                <div class="clearfix"></div>
+                <i class="fa fa-search"></i> </div>
+              <img src="{% static "hello/img/portfolio/06.jpg"%}" class="img-responsive" alt="E账通-虚账户"></div>
+          </div>
+        </div>
+        
+        <div class="col-sm-6 col-md-3 col-lg-3 branding app">
+          <div class="portfolio-item">
+            <div class="hover-bg">
+              <div class="hover-text">
+                <h4><a href="http://www.ymjihe.com" target='_blank' title="E账通-资金往来">E账通-资金往来</a></h4>
+                <small>技术：EMP+Spring+DB2</small>
+                <div class="clearfix"></div>
+                <i class="fa fa-search"></i> </div>
+              <img src="{% static "hello/img/portfolio/07.jpg"%}" class="img-responsive" alt="E账通-资金往来"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- About Section -->
+<div id="about">
+  <div class="container">
+    <div class="section-title text-center center">
+      <h2><strong>专业</strong> 技能</h2>
+      
+      <hr>
+    </div>
+    <div class="row">
+      <div class="col-md-6"> <img src="{% static "hello/img/about.png"%}" class="img-responsive"> </div>
+      <div class="col-md-6">
+        <div class="about-text"> <i class="fa fa-users"></i>
+          <div class="padding-left"><h4>IT专业技能</h4>
+        	<p>
+        		1、熟练掌握Java面向对象编程语言，有良好的编码习惯</br>
+        		2、熟练servlet、Spring、MyBatis开源框架，熟悉MVC开发模式，了解SpringBoot，Redis</br>
+        		3、熟练使用Eclipse、SVN、Git、Maven等工具进行项目开发</br>
+        		4、熟练使用HTML/CSS技术，精通Javascript/jquery编程,了解angularjs，reactjs等前端MVC框架进行模块开发，乐于学习less，sass，stylus，coffeescript等前端新技术</br>
+        		5、熟悉Ngnix，Tomcat，Python，Shell</br>
+        		7、熟练操作DB2、MYSQL、SQL Server，掌握基本SQL语言</br>
+        	</p>
+          </div>
+          
+          <i class="fa fa-magic"></i>
+          <div class="padding-left"><h4>个人特点</h4>
+         	 <p>有2年左右互联网金融行业大型企业应用系统开发相关经验，有较为扎实的基础知识, 有处理高并发请求架构经验</p>
+          </div>
+          <i class="fa fa-check-square-o"></i>
+          <!-- 这个心态很重要 -->
+          <div class="padding-left"><h4>人生信条</h4>
+          <p>用心把每一件平凡的事做好，就注定拥有不平凡的人生。</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+	<div id="achivements" class="section dark-bg">
+			<div class="container">	
+				<div class="row">
+					<div class="col-md-3 col-sm-3">
+						<div class="achivement-box">
+							<i class="fa fa-smile-o"></i>
+							<span class="count">26</span>
+							<h4>Age Years</h4>                            
+						</div>
+					</div> 
+					<div class="col-md-3 col-sm-3">
+						<div class="achivement-box">
+							<i class="fa fa-code"></i>
+							<span class="count">100000</span>
+							<h4>Code Amount</h4>                            
+						</div>
+					</div> 
+					<div class="col-md-3 col-sm-3">
+						<div class="achivement-box">
+							<i class="fa fa-check-square-o"></i>
+							<span class="count">4800</span>
+                            <h4>Work Hour</h4>
+						</div>
+					</div> 
+					<div class="col-md-3 col-sm-3">
+						<div class="achivement-box">
+							<i class="fa fa-trophy"></i>
+							<span class="count">10</span>
+							<h4>Projects Amount</h4>                            
+						</div>
+					</div> 
+				</div>
+			</div>
+		</div>
+<!-- Team Section -->
+<div id="team" class="text-center">
+  <div class="container">
+    <div class="section-title center">
+      <h2>人生 <strong>经历</strong></h2>
+      <hr>
+      <p>热爱互联网，热爱技术，专注于后台技术开发和业务需求设计实现</p>
+    </div>
+    <div id="row">
+	
+	<div class="col-md-3 col-sm-6">
+        <div class="thumbnail"> <img src="{% static "hello/img/team/02.jpg"%}" alt="西南交通大学希望学院" class="img-circle team-img">
+          <div class="caption">
+            <h3>西南交通大学希望学院</h3>
+            <p>土木工程</p>
+            <p>熟悉接触了Java编程语言，前端技术，喜欢网站制作和开发，很喜欢编程</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-3 col-sm-6">
+        <div class="thumbnail"> <img src="{% static "hello/img/team/01.jpg"%}" alt="杭州归谷培训中心" class="img-circle team-img">
+          <div class="caption">
+            <h3>达内广州培训中心</h3>
+            <p>Java培训</p>
+            <p>熟练掌握Java面向对象编程语言。熟练使用HTML，CSS，JS，Jquery技术，还有ajax基础知识和一些常见的Spring，MyBatis等MVC开发模式框架</p>
+          </div>
+        </div>
+      </div>
+      
+	  
+      <div class="col-md-3 col-sm-6">
+        <div class="thumbnail"> <img src="{% static "hello/img/team/03.jpg"%}" alt="浙大网新" class="img-circle team-img">
+          <div class="caption">
+            <h3>北京易诚互动网络技术有限公司</h3>
+            <p>广发银行E帐通系统</p>
+            <p>
+            	工作时间：2015.10-2018.2</br>
+           	 	主要从事金融电商行业的后台，PC网站开发，包括金融管理系统，电商网站，移动端商城等等
+           	 </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="thumbnail"> <img src="{% static "hello/img/team/04.jpg"%}" alt="欧工国际" class="img-circle team-img">
+          <div class="caption">
+            <h3>TODO</h3>
+            <p>全栈工程师</p>
+            <p>逆流而上，就要拼劲全力！</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Testimonials Section -->
+<div id="testimonials" class="text-center">
+  <div class="container">
+    <div class="section-title center">
+      <h2>自我 <strong>评价</strong></h2>
+      <hr>
+    </div>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div id="testimonial" class="owl-carousel owl-theme">
+          <div class="item">       
+            <p>
+			热爱学习,良好的团队合作精神，能迅速融入新的团队。</br>易和人相处，拥有良好的亲和力。
+			</p>
+          </div>
+          <div class="item">
+            <p>
+			有强烈的责任感，工作踏实，性格开朗乐观，积极上进，吃苦耐劳。</br>能在较大的压力下保持良好的工作状态，善于自我调节。
+			</p>
+          </div>
+          <div class="item">
+            <p>
+			非常热爱编程，喜欢钻研新的技术，喜欢接受各种不同的挑战。</br>具有很强的自学能力和良好的学习方法。
+			</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Contact Section -->
+<div id="contact" class="text-center">
+  <div class="container">
+    <div class="section-title center">
+      <h2><strong>联系</strong> 方式</h2>
+      <hr>
+    </div>
+    <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-4"> <i class="fa fa-map-marker fa-2x"></i>
+        <p>广州市</p>
+      </div>
+      <div class="col-md-4"> <i class="fa fa-envelope-o fa-2x"></i>
+        <p>1164004116@qq.com</p>
+      </div>
+      <div class="col-md-4"> <i class="fa fa-phone fa-2x"></i>
+        <p>13531658682</p>
+      </div>
+      <hr>
+      <div class="clearfix"></div>
+    </div>
+    <div class="col-md-8 col-md-offset-2">
+      <hr>
+      <h3>给我发邮件</h3>
+      <form name="sentMessage" id="contactForm" novalidate>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" id="name" class="form-control" placeholder="姓名" required="required">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="email" id="email" class="form-control" placeholder="邮箱" required="required">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <textarea name="message" id="message" class="form-control" rows="4" placeholder="内容" required></textarea>
+          <p class="help-block text-danger"></p>
+        </div>
+        <div id="success"></div>
+        <button type="submit" class="btn btn-default">确认发送</button>
+      </form>
+    </div>
+  </div>
+</div>
+<nav id="footer">
+  <div class="container">
+    <div class="pull-left fnav">
+      <p>Copyright &copy; 2016 王春. Java程序员
+    </div>
+    <div class="pull-right fnav">
+      <ul class="footer-social">
+	    <li><a href="http://v.t.sina.com.cn/share/share.php?url=http://blog.youzewang.com/jianli&title=Baron简历"><i class="icon iconfont">&#xe66e;</i></a></li>
+        <li><a href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.youzewang.com/jianli=&title=Baron简历"> <i class="icon iconfont">&#xe629;</i></a></li>
+        <li><a href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://blog.youzewang.com/jianli&title=Baron简历"> <i class="icon iconfont">&#xe616;</i></a></li>
+        <li><a href="http://share.renren.com/share/buttonshare.do?link=http://blog.youzewang.com/jianli&title=Baron简历"><i class="icon iconfont">&#xe66b;</i></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script type="text/javascript" src="{% static "hello/js/jquery.1.11.1.js"%}"></script> 
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script type="text/javascript" src="{% static "hello/js/bootstrap.js"%}"></script> 
+<script type="text/javascript" src="{% static "hello/js/SmoothScroll.js"%}"></script> 
+<script type="text/javascript" src="{% static "hello/js/jquery.prettyPhoto.js"%}"></script> 
+<script type="text/javascript" src="{% static "hello/js/jquery.isotope.js"%}"></script> 
+<script type="text/javascript" src="{% static "hello/js/jquery.counterup.js"%}"></script> 
+<script type="text/javascript" src="{% static "hello/js/waypoints.js"%}"></script>
+<script type="text/javascript" src="{% static "hello/js/jqBootstrapValidation.js"%}"></script> 
+<script type="text/javascript" src="{% static "hello/js/contact_me.js"%}"></script>
+<script src="{% static "hello/js/owl.carousel.js"%}"></script>
+
+<!-- Javascripts
+    ================================================== --> 
+<script type="text/javascript" src="{% static "hello/js/main.js"%}"></script>
+
+<script>
+ $(function()
+ {
+ var u = navigator.userAgent;
+if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1||u.indexOf('iPhone') > -1||u.indexOf('Windows Phone') > -1||navigator.userAgent.indexOf("iPad")>-1) {
+   $(".hover-bg .hover-text").css({'opacity':'1'});
+   
+   $(".hover-bg .hover-text>h4").css({'opacity':'1','-webkit-transform':'translateY(0)','transform':'translateY(0)'});
+   
+   $(".hover-bg .hover-text>i").css({'opacity':'1'});
+} 
+    
+ });
+  
+</script>
 </body>
 </html>

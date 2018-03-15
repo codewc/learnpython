@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+Here is({{ question}}) value
+
+<h1>{{ question.question_text }}</h1>
+<ul>
+{% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text }}</li>
+{% endfor %}
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p> {% endif %}
+
+<form action="{% url 'hello:vote' question.id %}" method="post">
+{% csrf_token %}
+{% for choice in question.choice_set.all %}
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
+{% endfor %}
+<input type="submit" value="Vote" />
+</form>
+</br>
+<!-- 这里使用了模板技术，很强大 -->
+<!-- hello:detail使用了命名空间 -->
+<li><a href="{% url 'hello:detail' question.id %}">{{ question.question_text }}</a></li>
+</ul>
+</body>
+</html>
