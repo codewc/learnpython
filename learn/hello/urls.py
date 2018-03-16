@@ -18,7 +18,6 @@ from django.urls import path,include
 from django.conf.urls.static import static
 from django.conf import settings
 from . import views
-
 '''
 The tutorial project has just one app, polls. In real Django projects, there might be five, ten, twenty apps or more. How does Django differentiate the URL names between them? For example, the polls app has a detail view, and so might an app on the same project that is for a blog. How does one make it so that Django knows which app view to create for a url when using the {% url %} template tag?
 
@@ -29,10 +28,12 @@ like: app_name = 'polls'
 app_name = 'hello'
 urlpatterns = [
     #ex: /hello/
+    path(r'^api-auth/', include('rest_framework.urls')),
     path('', views.index, name='index'),
     #ex /helllo/5/
     # the 'name' value as called by the {% url %} template tag
     path('<int:querstion_id>/',views.detail,name='detail'),
     path('<int:querstion_id>/results/',views.reslult,name='results'),
     path('<int:querstion_id>/vote/',views.vote,name='vote'),
+
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
