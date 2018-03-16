@@ -28,12 +28,10 @@ like: app_name = 'polls'
 app_name = 'hello'
 urlpatterns = [
     #ex: /hello/
-    path(r'^api-auth/', include('rest_framework.urls')),
     path('', views.index, name='index'),
     #ex /helllo/5/
     # the 'name' value as called by the {% url %} template tag
     path('<int:querstion_id>/',views.detail,name='detail'),
     path('<int:querstion_id>/results/',views.reslult,name='results'),
     path('<int:querstion_id>/vote/',views.vote,name='vote'),
-
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]

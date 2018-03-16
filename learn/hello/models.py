@@ -20,3 +20,10 @@ class Choice(models.Model):
     
     def __str__(self):
         return self.choice_text
+    
+class User(models.Model):
+    username = models.CharField(max_length=20,blank=True)
+    password = models.CharField(max_length=20,blank=True)
+    
+    def __str__(self):
+        return self.username

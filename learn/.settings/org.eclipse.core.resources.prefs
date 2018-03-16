@@ -1,2 +1,4 @@
 eclipse.preferences.version=1
+encoding//api/serializer.py=utf8
+encoding//hello/serializer.py=utf8
 encoding//learn/settings.py=utf8
