@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     
     'hello.apps.HelloConfig',
     'rest_framework',
-    'api.apps.ApiConfig'
+    'api.apps.ApiConfig',
+    'snippets.apps.SnippetsConfig'
 ]
 
 MIDDLEWARE = [
