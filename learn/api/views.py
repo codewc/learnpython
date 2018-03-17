@@ -1,5 +1,6 @@
 import json
 from django.shortcuts import render
+from django.conf.urls import url 
 
 from api.models import User
 from api.serializer import UserSerializer
@@ -48,3 +49,11 @@ def User_detail(request,pk):
             user.delete()
             return Response(status=status.HTTP_204_NO_CONTENT)
         
+        
+from rest_framework import viewsets
+class UserViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = User.objects.all()
+    serializer_class = UserSerializer

@@ -1,7 +1,7 @@
 from django.urls import path
 
 from api import views
-urlpatterns = [
-    #TODO 
-    path('api/', views.User_detail),
+
+urlpatterns= [
+    path('user_detail/', views.User_detail),
 ]

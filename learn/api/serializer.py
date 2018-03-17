@@ -2,10 +2,9 @@
 
 from rest_framework import serializers
 
-from hello.models import User
+from api.models import User
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        modle = User
+        model = User
         fields = ('id','username','password')
-    
