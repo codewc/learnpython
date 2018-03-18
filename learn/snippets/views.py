@@ -11,23 +11,28 @@ from rest_framework.response import Response
 from snippets.models import Snippnet
 from snippets.serializer import SnippetsSerializer 
 
+import logging
 
+logger = logging.getLogger("__name__")
 @api_view(['GET', 'POST'])
 @permission_classes((AllowAny,))
 def snippet_list(request, format=None):
     """
     List all code snippets, or create a new Snippnet.
     """
+    logger.info(request.data);
     if request.method == 'GET':
         snippets = Snippnet.objects.all()
         Snippnet.objects.filter()
         serializer = SnippetsSerializer(snippets, many=True)
+        logging.info(serializer.data)
         return Response(serializer.data)
 
     elif request.method == 'POST':
         serializer = SnippetsSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
+            logging.info(serializer.data)
             return Response(serializer.data, status=201)
         return Response(serializer.errors, status=400)
 
